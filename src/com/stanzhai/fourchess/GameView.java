@@ -21,17 +21,23 @@ public class GameView implements ApplicationListener {
 	private Music music;
 	private OrthographicCamera camera;
 	private BitmapFont font;
+	// 实际设备的屏幕尺寸
+	private int width;
+	private int height;
 	
 	@Override
 	public void create() {
+		width = Gdx.graphics.getWidth();
+		height = Gdx.graphics.getHeight();
 		camera = new OrthographicCamera();
-		camera.setToOrtho(false, 800, 480);
+		camera.setToOrtho(false, width, height);
 		   
 		batch = new SpriteBatch();
 		
 		texture = new Texture(Gdx.files.internal("main.jpg"));
 		
 		backgroundSprite = new Sprite(texture, 0, 0, 480, 320);
+		backgroundSprite.setScale(width / 480.0F, height / 320.0F);
 		
 		font = new BitmapFont(Gdx.files.internal("main.fnt"), Gdx.files.internal("fnt.png"), false);
 		
