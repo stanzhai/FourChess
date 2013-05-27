@@ -6,5 +6,12 @@ package com.stanzhai.fourchess.logic;
  *
  */
 public class Controller {
-
+	private final int[] playerChess = new int[]{ 0, 0 };
+	private Player curPlayer = Player.A;
+	private IGameView mGameView;
+	
+	public Controller(IGameView gameView, Player firstGoPlayer) {
+		mGameView = gameView;
+		curPlayer = firstGoPlayer;
+	}
 }
